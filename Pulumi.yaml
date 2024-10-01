@@ -1,0 +1,5 @@
+name: pulumi
+runtime:
+  name: python
+  options:
+    toolchain: poetry

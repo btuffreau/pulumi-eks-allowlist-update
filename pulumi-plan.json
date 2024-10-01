@@ -1,0 +1,2164 @@
+{
+    "manifest": {
+        "time": "2025-05-26T16:46:37.943264+02:00",
+        "magic": "668ca25d7f85ccc6ac87bbb638bb84f209eef6d0a451c1879fb6018ee75ce8ea",
+        "version": "v3.137.0"
+    },
+    "resourcePlans": {
+        "urn:pulumi:dev::pulumi-aetion::aws-native:eks:Addon::vpc-cni-addon": {
+            "goal": {
+                "type": "aws-native:eks:Addon",
+                "name": "vpc-cni-addon",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::pulumi:pulumi:Stack::pulumi-aetion-dev",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::aws-native:iam:Role::vpc-cni-role",
+                    "urn:pulumi:dev::pulumi-aetion::aws-native:eks:Cluster::eks-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws-native::awsn::777aff61-bf38-4bd5-a53d-6d29669ddf04",
+                "propertyDependencies": {
+                    "addonName": [],
+                    "clusterName": [
+                        "urn:pulumi:dev::pulumi-aetion::aws-native:eks:Cluster::eks-allowlist"
+                    ],
+                    "serviceAccountRoleArn": [
+                        "urn:pulumi:dev::pulumi-aetion::aws-native:iam:Role::vpc-cni-role"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__inputs": {
+                    "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                    "ciphertext": "v1:4EM6mupp/I1wEOxF:jc7PDEpo31ItvrrQIr+LytBrHhRInn+TAtMn29PTtHUJWDoI9UqIyv4AlHnB1b/eV71zSnpF5KiSIXMA5SFdiLmF/yWKv52JIcuqiD8rDPLoWrp1xhrUNS5ZYKMYUboDNgkiIyREkG8u7e37A2q68XI6+H6kC15uB9zes50heib4elQH4gOb6yIn63P54mEC6Rtj9kRB7wmQOBk="
+                },
+                "addonName": "vpc-cni",
+                "addonVersion": "v1.19.2-eksbuild.1",
+                "arn": "arn:aws:eks:us-east-1:672161423994:addon/eks-allowlist-8884b8f/vpc-cni/f2cb8680-d293-4b1e-bc53-298a83177bf0",
+                "clusterName": "eks-allowlist-8884b8f",
+                "serviceAccountRoleArn": "arn:aws:iam::672161423994:role/vpc-cni-role-e2c2522"
+            },
+            "seed": "FDiUxlTA/FD53zQZ2464ZyGYCt47pLS4z2VOC3f/8w4="
+        },
+        "urn:pulumi:dev::pulumi-aetion::aws-native:eks:Cluster::eks-allowlist": {
+            "goal": {
+                "type": "aws-native:eks:Cluster",
+                "name": "eks-allowlist",
+                "custom": true,
+                "inputDiff": {
+                    "updates": {
+                        "resourcesVpcConfig": {
+                            "endpointPrivateAccess": true,
+                            "endpointPublicAccess": true,
+                            "publicAccessCidrs": [
+                                "0.0.0.0"
+                            ],
+                            "subnetIds": [
+                                "subnet-0252706cca9051c38",
+                                "subnet-0e59bbef58eaff218",
+                                "subnet-03444a05f0f2fd34d"
+                            ]
+                        }
+                    }
+                },
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::pulumi:pulumi:Stack::pulumi-aetion-dev",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-2",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc::vpc-repro-allowlist",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-1",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-3",
+                    "urn:pulumi:dev::pulumi-aetion::aws-native:iam:Role::eks-role"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws-native::awsn::777aff61-bf38-4bd5-a53d-6d29669ddf04",
+                "propertyDependencies": {
+                    "resourcesVpcConfig": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-3",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-2",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-1",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc::vpc-repro-allowlist"
+                    ],
+                    "roleArn": [
+                        "urn:pulumi:dev::pulumi-aetion::aws-native:iam:Role::eks-role"
+                    ],
+                    "version": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "update"
+            ],
+            "state": {
+                "arn": "arn:aws:eks:us-east-1:672161423994:cluster/eks-allowlist-8884b8f",
+                "certificateAuthorityData": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "clusterSecurityGroupId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "encryptionConfigKeyArn": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "endpoint": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "name": "eks-allowlist-8884b8f",
+                "openIdConnectIssuerUrl": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "resourcesVpcConfig": {
+                    "endpointPrivateAccess": true,
+                    "endpointPublicAccess": true,
+                    "publicAccessCidrs": [
+                        "0.0.0.0"
+                    ],
+                    "subnetIds": [
+                        "subnet-0252706cca9051c38",
+                        "subnet-0e59bbef58eaff218",
+                        "subnet-03444a05f0f2fd34d"
+                    ]
+                },
+                "roleArn": "arn:aws:iam::672161423994:role/eks-role-allowlist",
+                "version": "1.32"
+            },
+            "seed": "18Mnj1DpYpTxWHSgfLe9qrv6WB9lm2bi7HEKhrIP8wE="
+        },
+        "urn:pulumi:dev::pulumi-aetion::aws-native:eks:Nodegroup::eksNodegroup": {
+            "goal": {
+                "type": "aws-native:eks:Nodegroup",
+                "name": "eksNodegroup",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::pulumi:pulumi:Stack::pulumi-aetion-dev",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc::vpc-repro-allowlist",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3",
+                    "urn:pulumi:dev::pulumi-aetion::aws-native:iam:Role::nodes-role",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-3",
+                    "urn:pulumi:dev::pulumi-aetion::aws-native:eks:Cluster::eks-allowlist",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-2",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-1"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws-native::awsn::777aff61-bf38-4bd5-a53d-6d29669ddf04",
+                "propertyDependencies": {
+                    "clusterName": [
+                        "urn:pulumi:dev::pulumi-aetion::aws-native:eks:Cluster::eks-allowlist"
+                    ],
+                    "nodeRole": [
+                        "urn:pulumi:dev::pulumi-aetion::aws-native:iam:Role::nodes-role"
+                    ],
+                    "scalingConfig": [],
+                    "subnets": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-2",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-1",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc::vpc-repro-allowlist",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-3",
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__inputs": {
+                    "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                    "ciphertext": "v1:diiafWvDUQ4jsuSM:GRv/r6s5iMNytI/bkGW+MT+rATaeiY82C9rLZXv5PEzwBZMeMVmavM/UIbSVHL4ff/jSmVHG+R0TuHpiUsstzv4q5Ke0smPTIKIFLOdJvLOIRBABtFW+Xovz7/IOFRaa2XMt9JpC0yplTjWVeUiG5RiNhjd5s3yT4hedJQG4KovuWxq+bLHAxoEFc/1L6uBcaRDL4mvKZGp5KIvMwD2xSccqCLH78q8JeRO0ZRnOZiOzk2uURaQ0BSDTKZbH63Jp/3JOJ/z9DkGSrRhkC0K9L1IX9mE8Int2LUsbJtizdakP3ykHXuWakRfQqA7giB7s3vuGIO9j2KZuD4syPqDUeLmvgKl1Jigc1Wf01hCylAbEikIPZ4WAFyEzm9y6T4N99A3rNxKrM0SjX+t9UFHqNWcaoaA="
+                },
+                "amiType": "AL2023_x86_64_STANDARD",
+                "arn": "arn:aws:eks:us-east-1:672161423994:nodegroup/eks-allowlist-8884b8f/eksNodegroup-0e18edf/cacb8680-6f59-2c2f-ee6e-8be8fa0c1959",
+                "capacityType": "ON_DEMAND",
+                "clusterName": "eks-allowlist-8884b8f",
+                "diskSize": 20,
+                "id": "eks-allowlist-8884b8f/eksNodegroup-0e18edf",
+                "instanceTypes": [
+                    "t3.medium"
+                ],
+                "labels": {},
+                "nodeRole": "arn:aws:iam::672161423994:role/nodes-role-f2789f0",
+                "nodegroupName": "eksNodegroup-0e18edf",
+                "releaseVersion": "1.32.3-20250519",
+                "scalingConfig": {
+                    "desiredSize": 1,
+                    "maxSize": 2,
+                    "minSize": 1
+                },
+                "subnets": [
+                    "subnet-0252706cca9051c38",
+                    "subnet-0e59bbef58eaff218",
+                    "subnet-03444a05f0f2fd34d"
+                ],
+                "tags": {},
+                "taints": [],
+                "updateConfig": {
+                    "maxUnavailable": 1
+                },
+                "version": "1.32"
+            },
+            "seed": "wyF0j30EyaWcU6JdYYZG41V4K3qpUr+hgNIFWHAHg/o="
+        },
+        "urn:pulumi:dev::pulumi-aetion::aws-native:iam:OidcProvider::oidc-provider": {
+            "goal": {
+                "type": "aws-native:iam:OidcProvider",
+                "name": "oidc-provider",
+                "custom": true,
+                "inputDiff": {
+                    "updates": {
+                        "url": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
+                    }
+                },
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::pulumi:pulumi:Stack::pulumi-aetion-dev",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::aws-native:eks:Cluster::eks-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws-native::awsn::777aff61-bf38-4bd5-a53d-6d29669ddf04",
+                "propertyDependencies": {
+                    "clientIdList": [],
+                    "url": [
+                        "urn:pulumi:dev::pulumi-aetion::aws-native:eks:Cluster::eks-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "delete-replaced",
+                "replace",
+                "create-replacement"
+            ],
+            "state": {
+                "arn": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "clientIdList": [
+                    "sts.amazonaws.com"
+                ],
+                "url": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
+            },
+            "seed": "5WB4iDO5DRiTh/ftefpaGj3xMiA2FS0OinjTobtXsQk="
+        },
+        "urn:pulumi:dev::pulumi-aetion::aws-native:iam:Role::eks-role": {
+            "goal": {
+                "type": "aws-native:iam:Role",
+                "name": "eks-role",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::pulumi:pulumi:Stack::pulumi-aetion-dev",
+                "protect": false,
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws-native::awsn::777aff61-bf38-4bd5-a53d-6d29669ddf04",
+                "propertyDependencies": {
+                    "assumeRolePolicyDocument": [],
+                    "managedPolicyArns": [],
+                    "roleName": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__inputs": {
+                    "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                    "ciphertext": "v1:N0JOMHuBNDqCBc1i:SMWL9IkHmq1FJeVrg2HjVnTpx+Okds8utO1g/ngAEoWfbPX4hrqzg7wobmj4lR3SRWZNkV1RrYYOPUUAqwW6feZOMSkLLrI26aEqIFeesZHX2VMQtyz6l5NihIInN2pmeinrEQAUHH5r6BOAWqxgPSXp3fvf/Bh4mmAk816enbwMIzYypV3BhTm24k5pgicL/gtb/zoUniAqJPEMAghrRLwQfyAyLl9MrBoHO+iGYV8yhXMQIlHn3brXuCkCu20Y6zF+ivJNCrygAWtq3cgDXxshj9wQMBxTi2SxziFcqnK8cNvLM9S6zFQjR3m1gX0b9kXFH0is0q5Wmt+LBIfjYcfJgb4uNQLUl/T+CmlXu3PWOJTd+FCkOvav25aXqvhVLKKUyKjodjiGMyceYgdSV+4Te+cIK2SiZVMJ03zDvMpFrE/5lPDAED9PZKz15lQ4ZZL4rYCA1gFbndUuBCjarlmPs4NIAp8NA7pa"
+                },
+                "arn": "arn:aws:iam::672161423994:role/eks-role-allowlist",
+                "assumeRolePolicyDocument": {
+                    "statement": [
+                        {
+                            "action": "sts:AssumeRole",
+                            "effect": "Allow",
+                            "principal": {
+                                "service": "eks.amazonaws.com"
+                            }
+                        }
+                    ],
+                    "version": "2012-10-17"
+                },
+                "description": "",
+                "managedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+                    "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+                ],
+                "maxSessionDuration": 3600,
+                "path": "/",
+                "roleId": "AROAZY77RMJ5EXPDDECLC",
+                "roleName": "eks-role-allowlist"
+            },
+            "seed": "OEGCUHmO5y9p6xNCqFBb8dBB68u4TPdk03Scg/k3Goc="
+        },
+        "urn:pulumi:dev::pulumi-aetion::aws-native:iam:Role::nodes-role": {
+            "goal": {
+                "type": "aws-native:iam:Role",
+                "name": "nodes-role",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::pulumi:pulumi:Stack::pulumi-aetion-dev",
+                "protect": false,
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws-native::awsn::777aff61-bf38-4bd5-a53d-6d29669ddf04",
+                "propertyDependencies": {
+                    "assumeRolePolicyDocument": [],
+                    "managedPolicyArns": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__inputs": {
+                    "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                    "ciphertext": "v1:lu+LhJOGy6jgE48d:84UXpLXcaM91c0QytosxNT0puezv9IXUDsRC9ASkHXnLCt1BVUAVlhCriBdazhNjti44WBVANyKaJPcewkV3Z5zVroAe7C7xwP7HtUQKtQSxEymHGqe0tpLXkodBMmIF3+/0AcQj13tNGuNxRZhPq6T0/+kSwszEjKW2buMkjYgUYvT7NxXic640ezpRae8RNr+k5ypv9yvzepP66esTtfUpByUvXkY7qVcGfF0HQTmzkNR/oc2yc+xgTsmDJAZ8EdWrcxsdtAOmyJsLGZS9Nq7sBQQtpA9GRq5+88RWOFtE0cqrHrZusdnc8TwZ6nKFbs7IR57A9xkZ/yihspNam0PN6RsfyR1+i2yHf2tIO2mh6uVXBczh5KQut+E2AgtvrlDONY7msH6+qi0mFlefMByLN6/2pLSBY1KmWuOTXg1ZPpqQE6MoiZqz+FZucEtjuXWoLD8WQLEOszsco2d6qnpFyOEwLr/0jE9eICozN0v0QwzAoCWIIdEcLqASfANmZy+UfL1OmXznDZUL2TY3pzePNgpgt3b1WxwLJjnqq7PjBe+EOMGATqA="
+                },
+                "arn": "arn:aws:iam::672161423994:role/nodes-role-f2789f0",
+                "assumeRolePolicyDocument": {
+                    "statement": [
+                        {
+                            "action": "sts:AssumeRole",
+                            "effect": "Allow",
+                            "principal": {
+                                "service": "ec2.amazonaws.com"
+                            }
+                        }
+                    ],
+                    "version": "2012-10-17"
+                },
+                "description": "",
+                "managedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+                    "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+                    "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+                ],
+                "maxSessionDuration": 3600,
+                "path": "/",
+                "roleId": "AROAZY77RMJ5NDSXOBZEC",
+                "roleName": "nodes-role-f2789f0"
+            },
+            "seed": "WgC07TqcK+uVo3PYG2h6ATa1ZeRl+9OEKgdG8b6BD50="
+        },
+        "urn:pulumi:dev::pulumi-aetion::aws-native:iam:Role::vpc-cni-role": {
+            "goal": {
+                "type": "aws-native:iam:Role",
+                "name": "vpc-cni-role",
+                "custom": true,
+                "inputDiff": {
+                    "updates": {
+                        "assumeRolePolicyDocument": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
+                    }
+                },
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::pulumi:pulumi:Stack::pulumi-aetion-dev",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::aws-native:iam:OidcProvider::oidc-provider"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws-native::awsn::777aff61-bf38-4bd5-a53d-6d29669ddf04",
+                "propertyDependencies": {
+                    "assumeRolePolicyDocument": [
+                        "urn:pulumi:dev::pulumi-aetion::aws-native:iam:OidcProvider::oidc-provider"
+                    ],
+                    "managedPolicyArns": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "update"
+            ],
+            "state": {
+                "arn": "arn:aws:iam::672161423994:role/vpc-cni-role-e2c2522",
+                "assumeRolePolicyDocument": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "managedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+                ],
+                "roleId": "AROAZY77RMJ5MEKSQZREU",
+                "roleName": "vpc-cni-role-e2c2522"
+            },
+            "seed": "AdjhyttYTyINlEH7Bet2iQN/KzaYbvLB4t4B84bpW4I="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/internetGateway:InternetGateway::vpc-repro-allowlist": {
+            "goal": {
+                "type": "aws:ec2/internetGateway:InternetGateway",
+                "name": "vpc-repro-allowlist",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1200000000000,\"delete\":1200000000000,\"update\":1200000000000}}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:internet-gateway/igw-0e223f62892311397",
+                "id": "igw-0e223f62892311397",
+                "ownerId": "672161423994",
+                "tags": {
+                    "Name": "vpc-repro-allowlist"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "y7wvmM26dGiAa7CazkuLdfaSeiFUHUbAU5HcL3Utl4g="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/eip:Eip::vpc-repro-allowlist-1": {
+            "goal": {
+                "type": "aws:ec2/eip:Eip",
+                "name": "vpc-repro-allowlist-1",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "tags": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"delete\":180000000000,\"read\":900000000000,\"update\":300000000000}}",
+                "address": null,
+                "allocationId": "eipalloc-0cc37e19d1fcd3e67",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:elastic-ip/eipalloc-0cc37e19d1fcd3e67",
+                "associateWithPrivateIp": null,
+                "associationId": "",
+                "carrierIp": "",
+                "customerOwnedIp": "",
+                "customerOwnedIpv4Pool": "",
+                "domain": "vpc",
+                "id": "eipalloc-0cc37e19d1fcd3e67",
+                "instance": "",
+                "ipamPoolId": null,
+                "networkBorderGroup": "us-east-1",
+                "networkInterface": "",
+                "privateDns": null,
+                "privateIp": "",
+                "ptrRecord": "",
+                "publicDns": "ec2-54-235-104-39.compute-1.amazonaws.com",
+                "publicIp": "54.235.104.39",
+                "publicIpv4Pool": "amazon",
+                "tags": {
+                    "Name": "vpc-repro-allowlist-1"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-1"
+                },
+                "vpc": true
+            },
+            "seed": "IXpWsJkTJTlWLe88ds/zGMwHJ6qdwemPT8KQY4QWja8="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/eip:Eip::vpc-repro-allowlist-2": {
+            "goal": {
+                "type": "aws:ec2/eip:Eip",
+                "name": "vpc-repro-allowlist-2",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "tags": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"delete\":180000000000,\"read\":900000000000,\"update\":300000000000}}",
+                "address": null,
+                "allocationId": "eipalloc-0fd7be188dbe746fa",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:elastic-ip/eipalloc-0fd7be188dbe746fa",
+                "associateWithPrivateIp": null,
+                "associationId": "",
+                "carrierIp": "",
+                "customerOwnedIp": "",
+                "customerOwnedIpv4Pool": "",
+                "domain": "vpc",
+                "id": "eipalloc-0fd7be188dbe746fa",
+                "instance": "",
+                "ipamPoolId": null,
+                "networkBorderGroup": "us-east-1",
+                "networkInterface": "",
+                "privateDns": null,
+                "privateIp": "",
+                "ptrRecord": "",
+                "publicDns": "ec2-23-21-3-75.compute-1.amazonaws.com",
+                "publicIp": "23.21.3.75",
+                "publicIpv4Pool": "amazon",
+                "tags": {
+                    "Name": "vpc-repro-allowlist-2"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-2"
+                },
+                "vpc": true
+            },
+            "seed": "Ig2pR8po8DJrUYt/6CAKhtgcchQQcgYTTHoCNIi28yE="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/eip:Eip::vpc-repro-allowlist-3": {
+            "goal": {
+                "type": "aws:ec2/eip:Eip",
+                "name": "vpc-repro-allowlist-3",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "tags": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"delete\":180000000000,\"read\":900000000000,\"update\":300000000000}}",
+                "address": null,
+                "allocationId": "eipalloc-0f520c4ade5f58b73",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:elastic-ip/eipalloc-0f520c4ade5f58b73",
+                "associateWithPrivateIp": null,
+                "associationId": "",
+                "carrierIp": "",
+                "customerOwnedIp": "",
+                "customerOwnedIpv4Pool": "",
+                "domain": "vpc",
+                "id": "eipalloc-0f520c4ade5f58b73",
+                "instance": "",
+                "ipamPoolId": null,
+                "networkBorderGroup": "us-east-1",
+                "networkInterface": "",
+                "privateDns": null,
+                "privateIp": "",
+                "ptrRecord": "",
+                "publicDns": "ec2-98-83-181-134.compute-1.amazonaws.com",
+                "publicIp": "98.83.181.134",
+                "publicIpv4Pool": "amazon",
+                "tags": {
+                    "Name": "vpc-repro-allowlist-3"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-3"
+                },
+                "vpc": true
+            },
+            "seed": "g0mn3qJiSkQ5CCUOCJ8XkVVBH2CSOfs2cvA5S1Q8vFc="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/natGateway:NatGateway::vpc-repro-allowlist-1": {
+            "goal": {
+                "type": "aws:ec2/natGateway:NatGateway",
+                "name": "vpc-repro-allowlist-1",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/eip:Eip::vpc-repro-allowlist-1"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "allocationId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/eip:Eip::vpc-repro-allowlist-1"
+                    ],
+                    "subnetId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1"
+                    ],
+                    "tags": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1800000000000,\"update\":600000000000}}",
+                "allocationId": "eipalloc-0cc37e19d1fcd3e67",
+                "associationId": "eipassoc-0926107806f825e5e",
+                "connectivityType": "public",
+                "id": "nat-094870d71e24f3c61",
+                "networkInterfaceId": "eni-0b4ad1366a171789c",
+                "privateIp": "10.0.32.190",
+                "publicIp": "54.235.104.39",
+                "secondaryAllocationIds": null,
+                "secondaryPrivateIpAddressCount": 0,
+                "secondaryPrivateIpAddresses": [],
+                "subnetId": "subnet-0de0042c918519c00",
+                "tags": {
+                    "Name": "vpc-repro-allowlist-1"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-1"
+                }
+            },
+            "seed": "J5pUIzT7sL3EkY6RAUTu+DLp07+pj8L2fxHZbLpMKTU="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/natGateway:NatGateway::vpc-repro-allowlist-2": {
+            "goal": {
+                "type": "aws:ec2/natGateway:NatGateway",
+                "name": "vpc-repro-allowlist-2",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/eip:Eip::vpc-repro-allowlist-2"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "allocationId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/eip:Eip::vpc-repro-allowlist-2"
+                    ],
+                    "subnetId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2"
+                    ],
+                    "tags": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1800000000000,\"update\":600000000000}}",
+                "allocationId": "eipalloc-0fd7be188dbe746fa",
+                "associationId": "eipassoc-06cdd5f2aa7c2d6ac",
+                "connectivityType": "public",
+                "id": "nat-0b80d373dea82f9da",
+                "networkInterfaceId": "eni-03229f7fe00f3aff6",
+                "privateIp": "10.0.103.157",
+                "publicIp": "23.21.3.75",
+                "secondaryAllocationIds": null,
+                "secondaryPrivateIpAddressCount": 0,
+                "secondaryPrivateIpAddresses": [],
+                "subnetId": "subnet-0cb09b7e1d964b1c6",
+                "tags": {
+                    "Name": "vpc-repro-allowlist-2"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-2"
+                }
+            },
+            "seed": "7XviLC4nCO4ocz5IrlnXZeRr3c7Sqiv9pnGDgR5nTo4="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/natGateway:NatGateway::vpc-repro-allowlist-3": {
+            "goal": {
+                "type": "aws:ec2/natGateway:NatGateway",
+                "name": "vpc-repro-allowlist-3",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/eip:Eip::vpc-repro-allowlist-3"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "allocationId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/eip:Eip::vpc-repro-allowlist-3"
+                    ],
+                    "subnetId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3"
+                    ],
+                    "tags": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1800000000000,\"update\":600000000000}}",
+                "allocationId": "eipalloc-0f520c4ade5f58b73",
+                "associationId": "eipassoc-03afc3847986ff6ae",
+                "connectivityType": "public",
+                "id": "nat-001680d9d1a1d00e2",
+                "networkInterfaceId": "eni-06213577c97a1ac8c",
+                "privateIp": "10.0.174.255",
+                "publicIp": "98.83.181.134",
+                "secondaryAllocationIds": null,
+                "secondaryPrivateIpAddressCount": 0,
+                "secondaryPrivateIpAddresses": [],
+                "subnetId": "subnet-02c0e38f7e31a0fc7",
+                "tags": {
+                    "Name": "vpc-repro-allowlist-3"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-3"
+                }
+            },
+            "seed": "oNztadmDAZSTYONlkOQvCkiqEO1B49afUEopMF49/IM="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable$aws:ec2/route:Route::vpc-repro-allowlist-private-1": {
+            "goal": {
+                "type": "aws:ec2/route:Route",
+                "name": "vpc-repro-allowlist-private-1",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-1",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-1",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/natGateway:NatGateway::vpc-repro-allowlist-1"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "destinationCidrBlock": [],
+                    "natGatewayId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/natGateway:NatGateway::vpc-repro-allowlist-1"
+                    ],
+                    "routeTableId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-1"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "carrierGatewayId": "",
+                "coreNetworkArn": "",
+                "destinationCidrBlock": "0.0.0.0/0",
+                "destinationIpv6CidrBlock": "",
+                "destinationPrefixListId": "",
+                "egressOnlyGatewayId": "",
+                "gatewayId": "",
+                "id": "r-rtb-072e5addf110a66761080289494",
+                "instanceId": "",
+                "instanceOwnerId": "",
+                "localGatewayId": "",
+                "natGatewayId": "nat-094870d71e24f3c61",
+                "networkInterfaceId": "",
+                "origin": "CreateRoute",
+                "routeTableId": "rtb-072e5addf110a6676",
+                "state": "active",
+                "transitGatewayId": "",
+                "vpcEndpointId": "",
+                "vpcPeeringConnectionId": ""
+            },
+            "seed": "56Zk/VmRZEqIGMvgbIjqXQCfOXMPzYWLpKiUpwOXClE="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable$aws:ec2/route:Route::vpc-repro-allowlist-private-2": {
+            "goal": {
+                "type": "aws:ec2/route:Route",
+                "name": "vpc-repro-allowlist-private-2",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-2",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-2",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/natGateway:NatGateway::vpc-repro-allowlist-2"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "destinationCidrBlock": [],
+                    "natGatewayId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/natGateway:NatGateway::vpc-repro-allowlist-2"
+                    ],
+                    "routeTableId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-2"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "carrierGatewayId": "",
+                "coreNetworkArn": "",
+                "destinationCidrBlock": "0.0.0.0/0",
+                "destinationIpv6CidrBlock": "",
+                "destinationPrefixListId": "",
+                "egressOnlyGatewayId": "",
+                "gatewayId": "",
+                "id": "r-rtb-09392d3d6fd49cce81080289494",
+                "instanceId": "",
+                "instanceOwnerId": "",
+                "localGatewayId": "",
+                "natGatewayId": "nat-0b80d373dea82f9da",
+                "networkInterfaceId": "",
+                "origin": "CreateRoute",
+                "routeTableId": "rtb-09392d3d6fd49cce8",
+                "state": "active",
+                "transitGatewayId": "",
+                "vpcEndpointId": "",
+                "vpcPeeringConnectionId": ""
+            },
+            "seed": "OWswL1n1ME+8YjsOQZ9rHKCERKMegpQKAB45vIRxHHg="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable$aws:ec2/route:Route::vpc-repro-allowlist-private-3": {
+            "goal": {
+                "type": "aws:ec2/route:Route",
+                "name": "vpc-repro-allowlist-private-3",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-3",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-3",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/natGateway:NatGateway::vpc-repro-allowlist-3"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "destinationCidrBlock": [],
+                    "natGatewayId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/natGateway:NatGateway::vpc-repro-allowlist-3"
+                    ],
+                    "routeTableId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-3"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "carrierGatewayId": "",
+                "coreNetworkArn": "",
+                "destinationCidrBlock": "0.0.0.0/0",
+                "destinationIpv6CidrBlock": "",
+                "destinationPrefixListId": "",
+                "egressOnlyGatewayId": "",
+                "gatewayId": "",
+                "id": "r-rtb-07e37ebe58c02d36f1080289494",
+                "instanceId": "",
+                "instanceOwnerId": "",
+                "localGatewayId": "",
+                "natGatewayId": "nat-001680d9d1a1d00e2",
+                "networkInterfaceId": "",
+                "origin": "CreateRoute",
+                "routeTableId": "rtb-07e37ebe58c02d36f",
+                "state": "active",
+                "transitGatewayId": "",
+                "vpcEndpointId": "",
+                "vpcPeeringConnectionId": ""
+            },
+            "seed": "Kk3ezKEQGUrORPehgYavs25FrP48ZKnxQcAtovlGQaQ="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable$aws:ec2/route:Route::vpc-repro-allowlist-public-1": {
+            "goal": {
+                "type": "aws:ec2/route:Route",
+                "name": "vpc-repro-allowlist-public-1",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-1",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/internetGateway:InternetGateway::vpc-repro-allowlist",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-1"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "destinationCidrBlock": [],
+                    "gatewayId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/internetGateway:InternetGateway::vpc-repro-allowlist"
+                    ],
+                    "routeTableId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-1"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "carrierGatewayId": "",
+                "coreNetworkArn": "",
+                "destinationCidrBlock": "0.0.0.0/0",
+                "destinationIpv6CidrBlock": "",
+                "destinationPrefixListId": "",
+                "egressOnlyGatewayId": "",
+                "gatewayId": "igw-0e223f62892311397",
+                "id": "r-rtb-094c034a89eccbe021080289494",
+                "instanceId": "",
+                "instanceOwnerId": "",
+                "localGatewayId": "",
+                "natGatewayId": "",
+                "networkInterfaceId": "",
+                "origin": "CreateRoute",
+                "routeTableId": "rtb-094c034a89eccbe02",
+                "state": "active",
+                "transitGatewayId": "",
+                "vpcEndpointId": "",
+                "vpcPeeringConnectionId": ""
+            },
+            "seed": "/yVqh3XKFg8ZsbEnNx4wnXe72VNZdq+wE3cPVr+MiuE="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable$aws:ec2/route:Route::vpc-repro-allowlist-public-2": {
+            "goal": {
+                "type": "aws:ec2/route:Route",
+                "name": "vpc-repro-allowlist-public-2",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-2",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-2",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/internetGateway:InternetGateway::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "destinationCidrBlock": [],
+                    "gatewayId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/internetGateway:InternetGateway::vpc-repro-allowlist"
+                    ],
+                    "routeTableId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-2"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "carrierGatewayId": "",
+                "coreNetworkArn": "",
+                "destinationCidrBlock": "0.0.0.0/0",
+                "destinationIpv6CidrBlock": "",
+                "destinationPrefixListId": "",
+                "egressOnlyGatewayId": "",
+                "gatewayId": "igw-0e223f62892311397",
+                "id": "r-rtb-022f47c084352fce51080289494",
+                "instanceId": "",
+                "instanceOwnerId": "",
+                "localGatewayId": "",
+                "natGatewayId": "",
+                "networkInterfaceId": "",
+                "origin": "CreateRoute",
+                "routeTableId": "rtb-022f47c084352fce5",
+                "state": "active",
+                "transitGatewayId": "",
+                "vpcEndpointId": "",
+                "vpcPeeringConnectionId": ""
+            },
+            "seed": "v6pt8KLmQ9wCRJ05rkqt+Mz2Dc69hxtVN2FTC34xXQ4="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable$aws:ec2/route:Route::vpc-repro-allowlist-public-3": {
+            "goal": {
+                "type": "aws:ec2/route:Route",
+                "name": "vpc-repro-allowlist-public-3",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-3",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-3",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/internetGateway:InternetGateway::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "destinationCidrBlock": [],
+                    "gatewayId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/internetGateway:InternetGateway::vpc-repro-allowlist"
+                    ],
+                    "routeTableId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-3"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "carrierGatewayId": "",
+                "coreNetworkArn": "",
+                "destinationCidrBlock": "0.0.0.0/0",
+                "destinationIpv6CidrBlock": "",
+                "destinationPrefixListId": "",
+                "egressOnlyGatewayId": "",
+                "gatewayId": "igw-0e223f62892311397",
+                "id": "r-rtb-0801bc73b613203961080289494",
+                "instanceId": "",
+                "instanceOwnerId": "",
+                "localGatewayId": "",
+                "natGatewayId": "",
+                "networkInterfaceId": "",
+                "origin": "CreateRoute",
+                "routeTableId": "rtb-0801bc73b61320396",
+                "state": "active",
+                "transitGatewayId": "",
+                "vpcEndpointId": "",
+                "vpcPeeringConnectionId": ""
+            },
+            "seed": "z8yXyjJa1qEuFMZuIIkL3KgQNuIhirsRAhWLnKvRxc8="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable$aws:ec2/routeTableAssociation:RouteTableAssociation::vpc-repro-allowlist-private-1": {
+            "goal": {
+                "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                "name": "vpc-repro-allowlist-private-1",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-1",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-1",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-1"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "routeTableId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-1"
+                    ],
+                    "subnetId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-1"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "gatewayId": "",
+                "id": "rtbassoc-061e1a4063db6c290",
+                "routeTableId": "rtb-072e5addf110a6676",
+                "subnetId": "subnet-0252706cca9051c38"
+            },
+            "seed": "htHxHqoMRwUK+Iak99c1NdAkrVpUBT/cuCorK5dQntQ="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable$aws:ec2/routeTableAssociation:RouteTableAssociation::vpc-repro-allowlist-private-2": {
+            "goal": {
+                "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                "name": "vpc-repro-allowlist-private-2",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-2",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-2",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-2"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "routeTableId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-2"
+                    ],
+                    "subnetId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-2"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "gatewayId": "",
+                "id": "rtbassoc-0d04af4dacdc4a2c4",
+                "routeTableId": "rtb-09392d3d6fd49cce8",
+                "subnetId": "subnet-0e59bbef58eaff218"
+            },
+            "seed": "F4p8dV/vvZlsuLcjHsP3nn4jAaEbmN/xhYkTenlvEtM="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable$aws:ec2/routeTableAssociation:RouteTableAssociation::vpc-repro-allowlist-private-3": {
+            "goal": {
+                "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                "name": "vpc-repro-allowlist-private-3",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-3",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-3",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-3"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "routeTableId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-3"
+                    ],
+                    "subnetId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-3"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "gatewayId": "",
+                "id": "rtbassoc-010f375ab29ef716a",
+                "routeTableId": "rtb-07e37ebe58c02d36f",
+                "subnetId": "subnet-03444a05f0f2fd34d"
+            },
+            "seed": "RCZtFTZd4INRuoi+W3O99aYhUooH05UxMo4Kwm+fShQ="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable$aws:ec2/routeTableAssociation:RouteTableAssociation::vpc-repro-allowlist-public-1": {
+            "goal": {
+                "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                "name": "vpc-repro-allowlist-public-1",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-1",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-1",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "routeTableId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-1"
+                    ],
+                    "subnetId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "gatewayId": "",
+                "id": "rtbassoc-08b2255eccd4277f2",
+                "routeTableId": "rtb-094c034a89eccbe02",
+                "subnetId": "subnet-0de0042c918519c00"
+            },
+            "seed": "+DhqZEG/jpu2KOra/lIxEWfMWSxgkcx0xy6nUPhG9Gc="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable$aws:ec2/routeTableAssociation:RouteTableAssociation::vpc-repro-allowlist-public-2": {
+            "goal": {
+                "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                "name": "vpc-repro-allowlist-public-2",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-2",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-2"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "routeTableId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-2"
+                    ],
+                    "subnetId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "gatewayId": "",
+                "id": "rtbassoc-0ad07d30958d19fad",
+                "routeTableId": "rtb-022f47c084352fce5",
+                "subnetId": "subnet-0cb09b7e1d964b1c6"
+            },
+            "seed": "LmRI2Mr1xauGabnhSBn756ojBDKP84HZuGn30n/95H4="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable$aws:ec2/routeTableAssociation:RouteTableAssociation::vpc-repro-allowlist-public-3": {
+            "goal": {
+                "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                "name": "vpc-repro-allowlist-public-3",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-3",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-3",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "routeTableId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-3"
+                    ],
+                    "subnetId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "gatewayId": "",
+                "id": "rtbassoc-0ba338c5d1bdafc29",
+                "routeTableId": "rtb-0801bc73b61320396",
+                "subnetId": "subnet-02c0e38f7e31a0fc7"
+            },
+            "seed": "yVEmV0HfPk+owungXDkrq8ICybSaOVvMQGhv0sV7J/Y="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-1": {
+            "goal": {
+                "type": "aws:ec2/routeTable:RouteTable",
+                "name": "vpc-repro-allowlist-private-1",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-1",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-1",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:route-table/rtb-072e5addf110a6676",
+                "id": "rtb-072e5addf110a6676",
+                "ownerId": "672161423994",
+                "propagatingVgws": [],
+                "routes": [],
+                "tags": {
+                    "Name": "vpc-repro-allowlist-private-1",
+                    "SubnetType": "Private"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-private-1",
+                    "SubnetType": "Private"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "IuEWLU7UPyBftgIbpgAU4TzdiVXw1kgcrmBG8nvzS9o="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-2": {
+            "goal": {
+                "type": "aws:ec2/routeTable:RouteTable",
+                "name": "vpc-repro-allowlist-private-2",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-2",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-2",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:route-table/rtb-09392d3d6fd49cce8",
+                "id": "rtb-09392d3d6fd49cce8",
+                "ownerId": "672161423994",
+                "propagatingVgws": [],
+                "routes": [],
+                "tags": {
+                    "Name": "vpc-repro-allowlist-private-2",
+                    "SubnetType": "Private"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-private-2",
+                    "SubnetType": "Private"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "BzgjA+ouTXfQh9rNq1XpdGMuXc9Qd+4oDCGauo87XDw="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-private-3": {
+            "goal": {
+                "type": "aws:ec2/routeTable:RouteTable",
+                "name": "vpc-repro-allowlist-private-3",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-3",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-3",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:route-table/rtb-07e37ebe58c02d36f",
+                "id": "rtb-07e37ebe58c02d36f",
+                "ownerId": "672161423994",
+                "propagatingVgws": [],
+                "routes": [],
+                "tags": {
+                    "Name": "vpc-repro-allowlist-private-3",
+                    "SubnetType": "Private"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-private-3",
+                    "SubnetType": "Private"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "XsXzXlRkccZ791PcNSkiRdJQZ1foCWmRhMzFBhi64io="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-1": {
+            "goal": {
+                "type": "aws:ec2/routeTable:RouteTable",
+                "name": "vpc-repro-allowlist-public-1",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:route-table/rtb-094c034a89eccbe02",
+                "id": "rtb-094c034a89eccbe02",
+                "ownerId": "672161423994",
+                "propagatingVgws": [],
+                "routes": [],
+                "tags": {
+                    "Name": "vpc-repro-allowlist-public-1",
+                    "SubnetType": "Public"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-public-1",
+                    "SubnetType": "Public"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "I6j/Jj65FW3XcOsrma39HUg91t+9w1wmZhRfDBjB0Jk="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-2": {
+            "goal": {
+                "type": "aws:ec2/routeTable:RouteTable",
+                "name": "vpc-repro-allowlist-public-2",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:route-table/rtb-022f47c084352fce5",
+                "id": "rtb-022f47c084352fce5",
+                "ownerId": "672161423994",
+                "propagatingVgws": [],
+                "routes": [],
+                "tags": {
+                    "Name": "vpc-repro-allowlist-public-2",
+                    "SubnetType": "Public"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-public-2",
+                    "SubnetType": "Public"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "046A80DVwVkX1zeI38X9uo2/GuyfOibcB3zRgO2tle4="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet$aws:ec2/routeTable:RouteTable::vpc-repro-allowlist-public-3": {
+            "goal": {
+                "type": "aws:ec2/routeTable:RouteTable",
+                "name": "vpc-repro-allowlist-public-3",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3",
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:route-table/rtb-0801bc73b61320396",
+                "id": "rtb-0801bc73b61320396",
+                "ownerId": "672161423994",
+                "propagatingVgws": [],
+                "routes": [],
+                "tags": {
+                    "Name": "vpc-repro-allowlist-public-3",
+                    "SubnetType": "Public"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-public-3",
+                    "SubnetType": "Public"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "BN8f9qhhm1Pkp6+e1v4mvgvqYj4KDSt/1lY9veIEDbw="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-1": {
+            "goal": {
+                "type": "aws:ec2/subnet:Subnet",
+                "name": "vpc-repro-allowlist-private-1",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "availabilityZone": [],
+                    "cidrBlock": [],
+                    "mapPublicIpOnLaunch": [],
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:subnet/subnet-0252706cca9051c38",
+                "assignIpv6AddressOnCreation": false,
+                "availabilityZone": "us-east-1a",
+                "availabilityZoneId": "use1-az6",
+                "cidrBlock": "10.0.0.0/19",
+                "customerOwnedIpv4Pool": "",
+                "enableDns64": false,
+                "enableLniAtDeviceIndex": 0,
+                "enableResourceNameDnsARecordOnLaunch": false,
+                "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                "id": "subnet-0252706cca9051c38",
+                "ipv6CidrBlock": "",
+                "ipv6CidrBlockAssociationId": "",
+                "ipv6Native": false,
+                "mapCustomerOwnedIpOnLaunch": false,
+                "mapPublicIpOnLaunch": false,
+                "outpostArn": "",
+                "ownerId": "672161423994",
+                "privateDnsHostnameTypeOnLaunch": "ip-name",
+                "tags": {
+                    "Name": "vpc-repro-allowlist-private-1",
+                    "SubnetType": "Private"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-private-1",
+                    "SubnetType": "Private"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "12OsGXBWoHvA2n1HsKBUuhtoFGVOqm28G8kDOLuecV0="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-2": {
+            "goal": {
+                "type": "aws:ec2/subnet:Subnet",
+                "name": "vpc-repro-allowlist-private-2",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "availabilityZone": [],
+                    "cidrBlock": [],
+                    "mapPublicIpOnLaunch": [],
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:subnet/subnet-0e59bbef58eaff218",
+                "assignIpv6AddressOnCreation": false,
+                "availabilityZone": "us-east-1b",
+                "availabilityZoneId": "use1-az1",
+                "cidrBlock": "10.0.64.0/19",
+                "customerOwnedIpv4Pool": "",
+                "enableDns64": false,
+                "enableLniAtDeviceIndex": 0,
+                "enableResourceNameDnsARecordOnLaunch": false,
+                "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                "id": "subnet-0e59bbef58eaff218",
+                "ipv6CidrBlock": "",
+                "ipv6CidrBlockAssociationId": "",
+                "ipv6Native": false,
+                "mapCustomerOwnedIpOnLaunch": false,
+                "mapPublicIpOnLaunch": false,
+                "outpostArn": "",
+                "ownerId": "672161423994",
+                "privateDnsHostnameTypeOnLaunch": "ip-name",
+                "tags": {
+                    "Name": "vpc-repro-allowlist-private-2",
+                    "SubnetType": "Private"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-private-2",
+                    "SubnetType": "Private"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "x8040Ny3cn+xqpupEUVvLLGtT2OuIryDnlNAO0pzKs8="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-private-3": {
+            "goal": {
+                "type": "aws:ec2/subnet:Subnet",
+                "name": "vpc-repro-allowlist-private-3",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "availabilityZone": [],
+                    "cidrBlock": [],
+                    "mapPublicIpOnLaunch": [],
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:subnet/subnet-03444a05f0f2fd34d",
+                "assignIpv6AddressOnCreation": false,
+                "availabilityZone": "us-east-1c",
+                "availabilityZoneId": "use1-az2",
+                "cidrBlock": "10.0.128.0/19",
+                "customerOwnedIpv4Pool": "",
+                "enableDns64": false,
+                "enableLniAtDeviceIndex": 0,
+                "enableResourceNameDnsARecordOnLaunch": false,
+                "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                "id": "subnet-03444a05f0f2fd34d",
+                "ipv6CidrBlock": "",
+                "ipv6CidrBlockAssociationId": "",
+                "ipv6Native": false,
+                "mapCustomerOwnedIpOnLaunch": false,
+                "mapPublicIpOnLaunch": false,
+                "outpostArn": "",
+                "ownerId": "672161423994",
+                "privateDnsHostnameTypeOnLaunch": "ip-name",
+                "tags": {
+                    "Name": "vpc-repro-allowlist-private-3",
+                    "SubnetType": "Private"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-private-3",
+                    "SubnetType": "Private"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "+NEQWj2HWTmpZdKheAT+LyLTUfdJv6TqGWsR5qXtFYA="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-1": {
+            "goal": {
+                "type": "aws:ec2/subnet:Subnet",
+                "name": "vpc-repro-allowlist-public-1",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "availabilityZone": [],
+                    "cidrBlock": [],
+                    "mapPublicIpOnLaunch": [],
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:subnet/subnet-0de0042c918519c00",
+                "assignIpv6AddressOnCreation": false,
+                "availabilityZone": "us-east-1a",
+                "availabilityZoneId": "use1-az6",
+                "cidrBlock": "10.0.32.0/20",
+                "customerOwnedIpv4Pool": "",
+                "enableDns64": false,
+                "enableLniAtDeviceIndex": 0,
+                "enableResourceNameDnsARecordOnLaunch": false,
+                "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                "id": "subnet-0de0042c918519c00",
+                "ipv6CidrBlock": "",
+                "ipv6CidrBlockAssociationId": "",
+                "ipv6Native": false,
+                "mapCustomerOwnedIpOnLaunch": false,
+                "mapPublicIpOnLaunch": true,
+                "outpostArn": "",
+                "ownerId": "672161423994",
+                "privateDnsHostnameTypeOnLaunch": "ip-name",
+                "tags": {
+                    "Name": "vpc-repro-allowlist-public-1",
+                    "SubnetType": "Public"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-public-1",
+                    "SubnetType": "Public"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "HWnT9FwxLF4BQK0r8eWUJfZRRraSdVGCFUMRgF3Zq/s="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-2": {
+            "goal": {
+                "type": "aws:ec2/subnet:Subnet",
+                "name": "vpc-repro-allowlist-public-2",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "availabilityZone": [],
+                    "cidrBlock": [],
+                    "mapPublicIpOnLaunch": [],
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:subnet/subnet-0cb09b7e1d964b1c6",
+                "assignIpv6AddressOnCreation": false,
+                "availabilityZone": "us-east-1b",
+                "availabilityZoneId": "use1-az1",
+                "cidrBlock": "10.0.96.0/20",
+                "customerOwnedIpv4Pool": "",
+                "enableDns64": false,
+                "enableLniAtDeviceIndex": 0,
+                "enableResourceNameDnsARecordOnLaunch": false,
+                "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                "id": "subnet-0cb09b7e1d964b1c6",
+                "ipv6CidrBlock": "",
+                "ipv6CidrBlockAssociationId": "",
+                "ipv6Native": false,
+                "mapCustomerOwnedIpOnLaunch": false,
+                "mapPublicIpOnLaunch": true,
+                "outpostArn": "",
+                "ownerId": "672161423994",
+                "privateDnsHostnameTypeOnLaunch": "ip-name",
+                "tags": {
+                    "Name": "vpc-repro-allowlist-public-2",
+                    "SubnetType": "Public"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-public-2",
+                    "SubnetType": "Public"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "sdoxvxARGWv/vcYO+tW1wDQ2D6EUOf19cgCQDeUFM3I="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc$aws:ec2/subnet:Subnet::vpc-repro-allowlist-public-3": {
+            "goal": {
+                "type": "aws:ec2/subnet:Subnet",
+                "name": "vpc-repro-allowlist-public-3",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                ],
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "availabilityZone": [],
+                    "cidrBlock": [],
+                    "mapPublicIpOnLaunch": [],
+                    "tags": [],
+                    "vpcId": [
+                        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:subnet/subnet-02c0e38f7e31a0fc7",
+                "assignIpv6AddressOnCreation": false,
+                "availabilityZone": "us-east-1c",
+                "availabilityZoneId": "use1-az2",
+                "cidrBlock": "10.0.160.0/20",
+                "customerOwnedIpv4Pool": "",
+                "enableDns64": false,
+                "enableLniAtDeviceIndex": 0,
+                "enableResourceNameDnsARecordOnLaunch": false,
+                "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                "id": "subnet-02c0e38f7e31a0fc7",
+                "ipv6CidrBlock": "",
+                "ipv6CidrBlockAssociationId": "",
+                "ipv6Native": false,
+                "mapCustomerOwnedIpOnLaunch": false,
+                "mapPublicIpOnLaunch": true,
+                "outpostArn": "",
+                "ownerId": "672161423994",
+                "privateDnsHostnameTypeOnLaunch": "ip-name",
+                "tags": {
+                    "Name": "vpc-repro-allowlist-public-3",
+                    "SubnetType": "Public"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist-public-3",
+                    "SubnetType": "Public"
+                },
+                "vpcId": "vpc-07559fc4d7e9796c8"
+            },
+            "seed": "1kP3tB2GlPr7habGJnt0q3c3KhP+LZ2kppf7tdqflMw="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc$aws:ec2/vpc:Vpc::vpc-repro-allowlist": {
+            "goal": {
+                "type": "aws:ec2/vpc:Vpc",
+                "name": "vpc-repro-allowlist",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc::vpc-repro-allowlist",
+                "protect": false,
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3::82f24f39-57bc-4ede-b799-c6e8f4f2725c",
+                "propertyDependencies": {
+                    "cidrBlock": [],
+                    "tags": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "__meta": "{\"schema_version\":\"1\"}",
+                "arn": "arn:aws:ec2:us-east-1:672161423994:vpc/vpc-07559fc4d7e9796c8",
+                "assignGeneratedIpv6CidrBlock": false,
+                "cidrBlock": "10.0.0.0/16",
+                "defaultNetworkAclId": "acl-005e7993070faa894",
+                "defaultRouteTableId": "rtb-06a7ac7b498e1f8bd",
+                "defaultSecurityGroupId": "sg-0faa77a8aea4fe0a8",
+                "dhcpOptionsId": "dopt-014bc8c41ebae0291",
+                "enableDnsHostnames": false,
+                "enableDnsSupport": true,
+                "enableNetworkAddressUsageMetrics": false,
+                "id": "vpc-07559fc4d7e9796c8",
+                "instanceTenancy": "default",
+                "ipv4IpamPoolId": null,
+                "ipv4NetmaskLength": null,
+                "ipv6AssociationId": "",
+                "ipv6CidrBlock": "",
+                "ipv6CidrBlockNetworkBorderGroup": "",
+                "ipv6IpamPoolId": "",
+                "ipv6NetmaskLength": 0,
+                "mainRouteTableId": "rtb-06a7ac7b498e1f8bd",
+                "ownerId": "672161423994",
+                "tags": {
+                    "Name": "vpc-repro-allowlist"
+                },
+                "tagsAll": {
+                    "Name": "vpc-repro-allowlist"
+                }
+            },
+            "seed": "z8PQlJNuNQmZerDyUP85Uc2t4bkWopasqnKoPg2AIYM="
+        },
+        "urn:pulumi:dev::pulumi-aetion::awsx:ec2:Vpc::vpc-repro-allowlist": {
+            "goal": {
+                "type": "awsx:ec2:Vpc",
+                "name": "vpc-repro-allowlist",
+                "custom": false,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::pulumi:pulumi:Stack::pulumi-aetion-dev",
+                "protect": false,
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {},
+            "seed": "Sghpc+N341B1WDxlx8OURBISDbxq5qMe0tmpivZgmj0="
+        },
+        "urn:pulumi:dev::pulumi-aetion::kubernetes:helm.sh/v3:Release::nginx-ingress": {
+            "goal": {
+                "type": "kubernetes:helm.sh/v3:Release",
+                "name": "nginx-ingress",
+                "custom": true,
+                "inputDiff": {
+                    "adds": {
+                        "compat": "true"
+                    },
+                    "deletes": [
+                        "skipCrds",
+                        "disableCRDHooks",
+                        "allowNullValues",
+                        "disableWebhooks",
+                        "timeout",
+                        "resetValues",
+                        "waitForJobs",
+                        "description",
+                        "skipAwait",
+                        "cleanupOnFail",
+                        "verify",
+                        "name",
+                        "lint",
+                        "postrender",
+                        "recreatePods",
+                        "atomic",
+                        "keyring",
+                        "devel",
+                        "renderSubchartNotes",
+                        "replace",
+                        "disableOpenapiValidation",
+                        "forceUpdate",
+                        "dependencyUpdate",
+                        "reuseValues",
+                        "values"
+                    ],
+                    "updates": {
+                        "repositoryOpts": {
+                            "repo": "https://kubernetes.github.io/ingress-nginx/"
+                        }
+                    }
+                },
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::pulumi:pulumi:Stack::pulumi-aetion-dev",
+                "protect": false,
+                "provider": "urn:pulumi:dev::pulumi-aetion::pulumi:providers:kubernetes::kubernetes-provider::04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "propertyDependencies": {
+                    "chart": [],
+                    "compat": [],
+                    "createNamespace": [],
+                    "namespace": [],
+                    "repositoryOpts": [],
+                    "version": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "create-replacement",
+                "replace",
+                "delete-replaced"
+            ],
+            "state": null,
+            "seed": "TgNt3cTk8jE9E2qQb+y8bvpD6kxB2o4RDi+7uLI44wc="
+        },
+        "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws-native::awsn": {
+            "goal": {
+                "type": "pulumi:providers:aws-native",
+                "name": "awsn",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::pulumi:pulumi:Stack::pulumi-aetion-dev",
+                "protect": false,
+                "propertyDependencies": {
+                    "profile": [],
+                    "region": [],
+                    "skipCredentialsValidation": [],
+                    "skipGetEc2Platforms": [],
+                    "skipMetadataApiCheck": [],
+                    "skipRegionValidation": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "profile": "private",
+                "region": "us-east-1",
+                "skipCredentialsValidation": "true",
+                "skipGetEc2Platforms": "true",
+                "skipMetadataApiCheck": "true",
+                "skipRegionValidation": "true",
+                "version": "1.28.0"
+            },
+            "seed": "iidAdUByhwB0Ro3/Dj+dqqBnlMgX9jiEa6foci0SkVc="
+        },
+        "urn:pulumi:dev::pulumi-aetion::pulumi:providers:aws::default_6_66_3": {
+            "goal": {
+                "type": "pulumi:providers:aws",
+                "name": "default_6_66_3",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "protect": false,
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "skipCredentialsValidation": "false",
+                "skipRegionValidation": "true",
+                "version": "6.66.3"
+            },
+            "seed": "oMbU0Bd/9nVKfQ6sDHr00VK6Nwz/nLbLcFcTRr1Opz8="
+        },
+        "urn:pulumi:dev::pulumi-aetion::pulumi:providers:awsx::default_2_21_1": {
+            "goal": {
+                "type": "pulumi:providers:awsx",
+                "name": "default_2_21_1",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "protect": false,
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "version": "2.21.1"
+            },
+            "seed": "ixv9YAabI11nDtf9RKAupzk9k5afC0uJo+E29xvEPV8="
+        },
+        "urn:pulumi:dev::pulumi-aetion::pulumi:providers:kubernetes::kubernetes-provider": {
+            "goal": {
+                "type": "pulumi:providers:kubernetes",
+                "name": "kubernetes-provider",
+                "custom": true,
+                "inputDiff": {
+                    "updates": {
+                        "kubeconfig": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
+                    }
+                },
+                "outputDiff": {},
+                "parent": "urn:pulumi:dev::pulumi-aetion::pulumi:pulumi:Stack::pulumi-aetion-dev",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:dev::pulumi-aetion::aws-native:eks:Cluster::eks-allowlist"
+                ],
+                "propertyDependencies": {
+                    "kubeconfig": [
+                        "urn:pulumi:dev::pulumi-aetion::aws-native:eks:Cluster::eks-allowlist"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "create-replacement",
+                "replace",
+                "delete-replaced"
+            ],
+            "state": {
+                "kubeconfig": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "version": "4.21.1"
+            },
+            "seed": "kzI5CVNbFS0sNJ+mCFhv67tFLPwNCIz+27LBB7FniI8="
+        },
+        "urn:pulumi:dev::pulumi-aetion::pulumi:providers:pulumi::default": {
+            "goal": {
+                "type": "pulumi:providers:pulumi",
+                "name": "default",
+                "custom": true,
+                "inputDiff": {},
+                "outputDiff": {},
+                "protect": false,
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {},
+            "seed": "EKIpiZsOOm6THUCUv9CF3aGLBfRlarByVVoNusHyECU="
+        },
+        "urn:pulumi:dev::pulumi-aetion::pulumi:pulumi:Stack::pulumi-aetion-dev": {
+            "goal": {
+                "type": "pulumi:pulumi:Stack",
+                "name": "pulumi-aetion-dev",
+                "custom": false,
+                "inputDiff": {},
+                "outputDiff": {},
+                "protect": false,
+                "customTimeouts": {}
+            },
+            "steps": [
+                "same"
+            ],
+            "state": {
+                "cluster_name": "eks-allowlist-8884b8f"
+            },
+            "seed": "UAZhXxbwViSZF50jGOWr4xIc4mGycbxSouuUJcGtgW0="
+        }
+    }
+}
